@@ -237,7 +237,6 @@ int main(int argc, char const *argv[]){
 	struct sigaction act;
 	fd_set fds;
 
-
 	act.sa_handler = mostra;
 	act.sa_flags = 0
 
@@ -251,9 +250,10 @@ int main(int argc, char const *argv[]){
 
 	FD_ZERO(&fds);	
 	FD_SET(0,&fds); 
-	FD_SET(fd, &fds);
+	FD_SET(fdLe, &fds);
 		
 	res = select(fd+1,&fds,NULL,NULL, NULL); 
+
 
 	if(res == 0){
 		printf("Nao ha dados recebidos nem pelo fifo nem pelo teclado...\n");
@@ -275,7 +275,7 @@ int main(int argc, char const *argv[]){
 		n = write(fdEscr, &data, sizeof(DATA));	
 		close(fdEscr);
 	}
-	else if(res > 0 && FD_ISSET(fd,&fds)){ //se vier pelo fifo do cliente, foi o que o srv enviou
+	else if(res > 0 && FD_ISSET(fdLe,&fds)){ //se vier pelo fifo do cliente, foi o que o srv enviou
 
 		n = read(fdLe, &data, sizeof(DATA));
 		printf("Mensagem recebida pelo SRV: %s\n", data.mensagem);
