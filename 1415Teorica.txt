@@ -1,0 +1,39 @@
+-->TEORICA
+
+1)
+o Firmware é um software armazenado de forma permante em memória flash. Este contem rotinas utilitarias para controlar aspetos do equipamento e rotinas para incializar esse equipamento e colocá-lo num estado inical coerente, chamada Basic Input Output System(BIOS).
+
+São fixas e estão memória não volátil - D
+
+2)
+Antigamente era no /etc/passwd
+Agora é no /etc/shadow - B
+
+3)
+O sudo é um dos programas que tem o bit setuid ligado, ou seja, quando executamos um programa com o sudo, estamos a usar os privilégios do root, uma vez que o ficheiro sudo pertence ao root. - B
+
+4) D
+
+5)
+
+6)
+
+7) B
+
+10) 
+Fechamos o stdin e o stdout e ao fazer open do ficheiro em O_WRONLY estamos a redirecionar o printf("comando") (que iria mandar para o stdout) para o ficheiro abc.txt - D
+??? O scanf não funciona porque fechámos o stdin em close(0) ???  
+
+11) C
+
+12) Como é lançado um  fork dentro do if, mas quando se faz isto, não é certo se o pai é executado primeiro ou o filho, logo pode aparecer vários 0,1 e 2. A opção mais correta será a B.
+
+14) 
+Só se consegue evitar colisões com a memória paginada.
+D
+
+16) 2^12 de deslocamento=4096
+
+então 8096/4096=2 com resto de 4
+
+vamos ao indice 2 e somamos 4--> 16384+4=16388
