@@ -1,0 +1,182 @@
+────────── Diretorias ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+	🔸 /      ➡ diretoria raiz
+	🔸 /bin   ➡ comandos e outros ficheiros
+	🔸 /dev   ➡ dispositivos
+	🔸 /etc   ➡ bibliotecas e ficheiros de configuração
+	🔸 /lib   ➡ bibliotecas de ambito geral e do sistema
+	🔸 /boot  ➡ ficheiros de arranque da maquina
+	🔸 /home  ➡ diretorias pessoais dos users
+	🔸 /media ➡ standart para mostrar dispositivos(pens, cdroms)
+	🔸 /temp  ➡ ficheiros temporarios
+	🔸 /var   ➡ ficheiros que variam muito de tamanho
+	🔸 /sbin  ➡ ficheiros de execução restrita
+	🔸 /srv   ➡ programas de natureza servidor (mail, web, ftp)
+
+────────── Lista de comandos ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+	(nome-do-comando opçoes destino)
+	
+	🔸 man  ➡  mostra ajuda
+	🔸 pwd   ➡  diz a pasta onde estou
+	🔸 ls  [∎] [FILE]             ➡ mostrar conteudo da diretoria,  ∎ = -l(formato detalhado) / -a(mostra todos os ficheiros) / -d(lista a diretoria)
+			-> ls apenas, não mostra os ficheiros que comecem com um ponto
+	🔸 echo			         ➡ imprime mensagens
+	🔸 echo $(∎)                  ➡ mostrar conteudo associado á variável , ∎ = PWD (diretoria atual)  
+	🔸 cd [∎]                     ➡ muda a diretoria atual, ∎ = diretoria pretendida
+	🔸 set			         ➡ define variaveis de ambiente
+	🔸 whereis [∎]                ➡ procurar onde esta determinado ficheiro, ∎ = -b(binarios) / -s(codigo fonte) / -M(diretoria especificada)
+	🔸 pico/nano		         ➡ editores de texto (modo consola)
+	🔸 passwd 			         ➡ (mudar detalhes do utilizador)
+	🔸 who [∎][FILE|ARG1 ARG2]    ➡ utilizadores logados,  ∎ = -u(userlist) / -c(countall) / -m(hostname e username)
+	🔸 whoami			         ➡ info do utilizador
+	🔸 su [∎]			         ➡ executa uma nova shell com outro user,  ∎ = -c(comando) / -s(shell) / -m (mantem as variaveis de origem da shell)
+	🔸 sudo, sudoexit	         ➡ executa comandos com outro utilizador
+	🔸 reboot [-f]		         ➡ força o reboot
+	🔸 shutdown [∎] TIME[MESSAGE] ➡ encerra o sistema,  ∎ = -r(reiniciar) / -c(cancela o shutdown)
+	🔸 useradd [∎] username       ➡ cria ou atualiza um user (so com root/sudo)
+	🔸 userdel [∎] username       ➡ remove um utilizador     (so com root/sudo)
+	🔸 ps              	         ➡ apresenta processos em execução
+	🔸 top           	            ➡ utilizaçao de memoria e processador
+	🔸 df    		   	         ➡ ocupação de disco
+	🔸 cp [∎]                     ➡ copia ficheiros e diretorias, ∎ = -u(copia quando SOURCE + recente que DEST) / -r(copia de formar recursiva)
+	🔸 mv [∎]                     ➡ move ou renomeia ficheiros, ∎ = -f(nao pergunta nada antes de escrever no DEST) / -i(pergunta sempre) / -u(copia quando SOURCE + recente que DEST) / -n(nao escreve por cima quando SOURCE + recente que DEST) 
+			-> para mudarmos o nome de uma coisa é fazer: mv texto.txt info.txt  - o texto.txt passa a ser info.txt
+	🔸 rm [∎]                     ➡ apaga ficheiros e diretorias, ∎ = -f(nao pergunta nada) / -i(confirma) / -r(^) / -d(remove as diretorias que ficaram vazias)
+	🔸 mkdir [∎]                  ➡ cria diretorias, ∎ = -p(abc/ola -> se abc nao existir cria abc)
+	🔸 rmdir [∎]                  ➡ remove diretorias, ∎ = --ignore-fail-on-empty (ignora quando diretorias nao estao vazias) / -p(remove tambem  as diretorias base)
+	🔸 find			         ➡ procura ficheiros
+	🔸 chmod			         ➡ modifica as permissoes de ficheiros (r/w/x)
+	🔸 touch [∎]                  ➡ modifica timestamps de ficheiros, ∎ = -a(ultimo acesso) / -m(ultima modificação) / -c(nao cria ficheiro caso nao exista) / -d=STRING(utiliza a STRING como hora atual)
+	
+	/ -> raíz
+	~ -> pasta pessoal
+	. -> pasta atual
+	.. -> pasta anterior
+
+────────── Manipulação de texto ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+	 🔸 cat  ➡ mostra conteudo ficheiros
+	 🔸 cut  ➡ extrai coluna (campo)
+	 🔸 grep ➡ extrai linhas especificas com base num filtro
+	 	-> grep maria texto.txt  - vai buscar as linhas do texto.txt que têm a palavra maria 
+	 🔸 head ➡ mostra primeiras linhas de um ficheiro
+	 🔸 tail ➡ msotra ultimas linhas de um ficheiro
+	 🔸 more ➡ mostra ficheiro pagina a pagina (Alternativa=less)
+	 🔸 sort ➡ mostra conteudo ordenado por um certo criterio
+	 		-> sort texto.txt ordena as linhas por ordem alfabética
+	 		-> sort -r texto.txt ordena ao contrário da ordem
+	 		-> sort -n texto.txt ordena por numeros
+	 🔸 uniq ➡ mostra conteudo filtrando repetições
+	 🔸 wc   ➡ apresenta numero de caracteres/palavras/linhas
+	 	-> wc texto.txt aparece tipo 
+	 		-> 3  20  67  texto.txt  -  3 linhas, 20 colunas, 67 letras
+ 
+────────── Processos ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+ 	🔸 ps [∎]                 ➡ mostra os processos do pc, ∎ = ax(mostra todos os processos ativos) / l(mostra mais info) / ls(mostra grau de parentesco) / a(msotra processos relativos ao user atual)
+	🔸 jobs          	     ➡ msotra tarefas a correr ou paradas no pc
+	🔸 bg %∎                  ➡ backgroud (continuar tarefa parada com ^Z em background), ∎ = numero de processo a retomar
+	🔸 fg %∎                  ➡ foreground (continuar tarefa parada com ^Z em foreground), ∎ = numero de processo a retomar
+	🔸 kill %∎ / kill -9 psId ➡ terminar processo por completo em qualquer circunstancia 
+	🔸 ^C             	     ➡ terminar processo (só funciona em foreground)
+	🔸 ^Z              	     ➡ supender processo (só funciona em foreground)
+	
+
+FICHA
+
+touch - cria novo ficheiro
+ls - lista as pastas do diretorio
+pwd diz qual o diretorio onde estás
+
+
+a)
+i)
+	man cp, man mv, man rm    - man mostra o manual de cada comando
+		cp - copy: copia de ficheiros
+		mv- mov ou rename: mover ou mudar nome de ficheiro
+			mv rafael bruno muda rafael para bruno
+			mv rafael diretorio move rafael para o diretorio
+		rm - remove: remove ficheiros, para pastas tem de ser rm -r ou rmdir
+
+ii) man 3 printf - vai ao manual do c da função printf
+se fosse man printf é que ia comando
+
+
+b)
+i)escrever passwd
+
+c)
+i) apenas ls
+
+ii) ls -la mostra até os ficheiros escondidos, os terminados em .qqcoisa ou   ls -l que mostra menos
+
+iii)ls -r
+
+
+d)
+i) cd - change diretory
+	cd /tmp
+
+ii)pwd
+
+iii) cd ..  volta uma para trás
+cd sem mais nada volta tudo para trás para o inicio
+
+iv) cd bin (ir primeiro para bin) e depois ls noutro comando ou logo ls/bin e vai logo
+
+v)mkdir aulas  e depois cd aulas para ir para lá
+
+vi)mkdir aulas/a aulas/a/b  -  cria primeiro o a e depois cria-se o b dentro do a
+
+vii)rm -r aulas/*   -  elimina tudo dentro das aulas
+
+	ou
+	
+    rm -r aulas/a/b aulas/a - apaga primeiro o b e depois o a, apaga primeiro o mais de dentro
+   
+e)
+i) printev PATH
+
+ii)export TESTE='aula123' é de ambiente sem export era shell
+
+iii)echo $TESTE
+	ou
+    printenv | grep TESTE
+    ENV | grep TESTE
+
+iv)uma vez que era uma variavel ambiente, ao fazermos exit da consola ela desaparece
+
+f)
+v)echo "ola"
+
+vi)	
+a)	nano ident - nano é editor de texto
+	preencher
+	cat - mostra o que está lá dentro
+
+b) agora sem nano
+	echo "RafaelRibeiro\n2019131989" > ident  (-e assume que \n é um breakline)
+	
+vii)cat ident
+
+g)
+i) ls -l
+ii) uma vez que o ficheiro não é executável, usando o ls -l vemos que não tem o "x"
+iii) sudo chmod +x ident  - sudo mexe nas permissões, adiciona a execução (x)
+iv) ./ident (ao usar ./ estamos a executar um ficheiro)
+v)sudo chmod -rw ident  -  tira o rw 
+vi)sudo cat ident
+vii)sudo chown man ident
+viii)sudo chown man rafael ident
+ix) cat /etc/passwd
+x) no conteudo /etc/shadow aparecem as credenciais encriptadas
+   é preciso usar o sudo cat /etc/shadow aparecem as credenciais encriptadas
+xi)whoami diz o nome do user
+   su man para mudar para o utlizador man
+
+	
+	
+	
+ 	
+ 
+ 
+ 
+ 
+ 

@@ -1,0 +1,65 @@
+────────── DEBUG ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+⚠️Ao fazer gcc do ficheiro, só incluir "-g" no final se for para fazer debug!!
+
+👉No debug existem os seguintes comandos:
+
+	🔸 (l) list              ➡ lista o código (com o número das linhas)
+	🔸 (p) print             ➡ mostrar o conteudo de uma variável
+	🔸 (r) run               ➡ executa uma aplicação 
+	🔸 (b) break [argumento] ➡ põe um breakpoint numa linha ou numa expressão (main, printf, etc)
+	🔸 info break            ➡ informação sobre os breakpoints em uso
+	🔸 (d) del [num]         ➡ eliminar um breakpoint específico
+	🔸 (c) continue          ➡ avança até ao fim ou até o próximo breakpoint
+	🔸 (n) next              ➡ avança uma linha de cada vez no código
+	🔸 (q) quit              ➡ sair do gbd
+
+
+👉Ao compilar varios ficheiros conectados pode ser feito de duas formas:
+
+	🔸 1ª ➡ gcc programa.c imrime.c -o ex4
+	            [       source      ]  [EXE]
+	        
+	🔸 2ª ➡  a) gcc programa.c -c
+	          b) gcc imprime.c -c
+	          c) gcc programa.o imprime.o -o ex4
+	                 [ objeto ]  [objeto]   [EXE]  
+              
+────────── USAR A MAKEFILE PARA DEBUG POSTERIOR ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+👉criar makefile (nano makefile):
+
+FLAGS=-D DEBUG   (declarar variaveis)
+
+ex4: programa.o imprime.o					⚠️(usar 'programa.o' e 'imprime.o' para fazer o EXEC 'ex4')
+  <TAB>   gcc programa.o imprime.o -o ex4   	
+
+programa.o: programa.c imprime.h				⚠️(usar 'programa.c' e 'imrpime.h' para gerar 'programa.o' se data 'programa.o' < 'programa.c')
+  <TAB> 	gcc programa.c -c  ${FLAGS}
+ 
+imprime.o: imprime.c						⚠️(usar 'imprime.c' para gerar 'imprime.o' se data 'imprime.o' < 'imprime.c')
+  <TAB>	gcc imprime.c -c
+		
+-------------------------------------------------------------------   Outros Exemplos   -----------------------------------------------------------------------------------------------------------------------
+
+limpa:			⚠️(apaga todos os objetos (.o)) (Vai sempre correr porque nao foi colocado nada à frente de limpar)
+  <TAB>   rm *.o
+
+instala:
+  <TAB>   echo "Vou instalar...(copiar)"
+  
+  
+  
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
